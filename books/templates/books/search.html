@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub</title>
+</head>
+
+<body>
+
+    <form action="{% url 'books:search' %}" method="get">
+        <input type="search" name="q" value="{{ query }}" placeholder="Search a book" required>
+        <button id="search-btn" type="submit">Search</button>
+    </form>
+
+    {% if books %}
+        {% for book in books %}
+        <div>
+            {% if book.cover_i %}
+                <img src="https://covers.openlibrary.org/b/id/{{ book.cover_i }}-M.jpg" alt="Cover of {{ book.title }}">
+            {% endif %}
+
+            {% if book.editions.docs %}
+                <h2>{{ book.editions.docs.0.title }}</h2>
+                <h3>{{ book.editions.docs.0.subtitle }}</h3>
+            {% else %}
+                <h2>{{ book.title }}</h2>
+            {% endif %}
+
+            {% if book.author_name %}
+                <p>Author: {{ book.author_name|join:", " }}</p>
+            {% endif %}
+
+            {% if book.first_publish_year %}
+                <p>First published: {{ book.first_publish_year }}</p>
+            {% endif %}
+        </div>
+
+        <hr>
+
+        {% endfor %}
+    
+    {% else %}
+        <h2>No results found.</h2>
+    {% endif %}
+
+</body>
+
+</html>

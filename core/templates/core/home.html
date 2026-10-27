@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub</title>
+    <link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+    <script src="{% static 'core/js/home.js' %}" defer></script>
+</head>
+
+<body>
+
+    <form action="{% url 'books:search' %}" method="get">
+        <input type="search" name="q" placeholder="Search a book" required>
+        <button id="search-btn" type="submit">Search</button>
+    </form>
+
+    {% if request.user.is_authenticated %}
+        <h1>Hi, {{ request.user.display_name }}!</h1>
+        <div class="profile-dropdown">
+            <button class="dropdown-trigger" type="button">
+                {% if request.user.profile_picture %}
+                    <img
+                        src="{{ request.user.profile_picture.url }}"
+                        alt="Profile"
+                        class="profile-picture"
+                    >
+                {% else %}
+                    <img
+                        src="{% static 'core/images/default-pfp.png' %}"
+                        alt="Profile"
+                        class="profile-picture"
+                    >
+                {% endif %}
+            </button>
+
+            <div class="dropdown-menu">
+                <a href="{% url 'users:profile' %}">My Profile</a>
+                <a href="#">Browse Books</a>
+                <a href="#">My Library</a>
+                <a href="#">Settings</a>
+                <a href="{% url 'users:logout_user' %}">Logout</a>
+            </div>
+        </div>
+
+    {% else %}
+        <h1>Hi, User!</h1>
+        <a href="{% url 'users:register' %}">
+        <button>Register</button>
+        </a>
+        <a href="{% url 'users:login_user' %}">
+        <button>Login</button>
+        </a>
+    {% endif %}
+
+</body>
+
+</html>
