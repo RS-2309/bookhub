@@ -1,0 +1,2 @@
+1. Fix the Home page UI as per the Canva Design. [+ Fix the width]
+2. Fix Register Page UI. [+ Dual Split Design, + Custom Books with BookHub printed in the image, + cut section so background theme gets a peak]

@@ -1,3 +1,5 @@
+"use client";
+
 import {
     createContext,
     useContext,
@@ -12,7 +14,7 @@ import {
     logoutUser,
     registerUser,
     type User,
-} from "../services/auth";
+} from "@/services/auth";
 
 interface AuthContextType {
     user: User | null;

@@ -1,0 +1,12 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 52" fill="none">
+  <g stroke="#93422B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 40C20 34 12 33 5 35V9C14 6 22 9 27 15"></path>
+    <path d="M27 40C34 34 42 33 49 35V9C40 6 32 9 27 15"></path>
+    <path d="M27 15V45"></path>
+    <path d="M7 39C15 37 22 39 27 45C32 39 39 37 47 39"></path>
+  </g>
+  <text x="62" y="36" fill="#241F16" font-family="Georgia, 'Times New Roman', serif" font-size="29" font-weight="bold" letter-spacing="-1">
+    BookHub
+  </text>
+</svg>
